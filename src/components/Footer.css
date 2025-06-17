@@ -1,0 +1,32 @@
+footer {
+  padding: var(--spacing-lg);
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.social-links {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+} 

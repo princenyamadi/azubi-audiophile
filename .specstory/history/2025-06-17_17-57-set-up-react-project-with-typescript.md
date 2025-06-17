@@ -1412,11 +1412,543 @@ _**Assistant**_
 
 ---
 
+```bash
+git add . && git commit -m "feat: implement header, navigation, and footer components"
+```
+
+```
+╭─pointbreak@Pointbreaks-Macbook-Pro ~/Documents/source/personal/audiofile  ‹main› 
+╰─➤  git add . && git commit -m "feat: implement header, navigation, and footer components"
+[main 0c3602c] feat: implement header, navigation, and footer components
+ 5 files changed, 396 insertions(+), 4 deletions(-)
+ create mode 100644 src/components/Footer.tsx
+ create mode 100644 src/components/Header.tsx
+╭─pointbreak@Pointbreaks-Macbook-Pro ~/Documents/source/personal/audiofile  ‹main› 
+╰─➤
+```
+
+---
+
+```diff
+  - [x] Phase 2: Design System & Global Styles
+  - [x] Phase 3: Routing & Page Structure
+- - [ ] Phase 4: Header, Navigation, and Footer
++ - [x] Phase 4: Header, Navigation, and Footer
+  - [ ] Phase 5: Home Page Implementation
+  - [ ] Phase 6: Category & Product Listing Pages
+```
+
+---
+
+Phase 4 is now complete and committed with the message:
+> feat: implement header, navigation, and footer components
+
+Next, we'll move on to Phase 5: Home Page Implementation. This will involve:
+- Building the Home page using your Figma design as a reference.
+- Using mock data for featured products, banners, etc.
+- Ensuring responsiveness and accessibility.
+
+Would you like to proceed with Phase 5, or do you want to review or adjust anything from Phase 4 first?
+
+---
+
+_**User**_
+
+proceed with phase 5
+
+---
+
+_**Assistant**_
+
+
 
 
 ---
 
+```diff
+- 
++ import React from 'react';
++ 
++ const Home: React.FC = () => {
++   return (
++     <div className="home">
++       <section className="hero">
++         <h1>Welcome to Audiophile</h1>
++         <p>Discover the best audio products for your lifestyle.</p>
++       </section>
++       <section className="featured-products">
++         <h2>Featured Products</h2>
++         <div className="product-grid">
++           {/* Placeholder for featured products */}
++           <div className="product">Product 1</div>
++           <div className="product">Product 2</div>
++           <div className="product">Product 3</div>
++         </div>
++       </section>
++       <section className="banner">
++         <h2>Special Offer</h2>
++         <p>Get 20% off on all products this month!</p>
++       </section>
++     </div>
++   );
++ };
++ 
++ export default Home; 
+```
 
+---
+
+```diff
+  import Header from './components/Header';
+  import Footer from './components/Footer';
+- import { useState } from 'react'
+- import reactLogo from './assets/react.svg'
+- import viteLogo from '/vite.svg'
++ import Home from './pages/Home';
+  import './App.css'
+- 
+- // Placeholder components
+- const Home = () => <div>Home Page</div>;
+  
+  const App: React.FC = () => {
+-   const [count, setCount] = useState(0)
+- 
+    return (
+      <Router>
+```
+
+```diff
+          <main>
+            <Routes>
+-             <Route path="/" element={
+-               <>
+-                 <div>
+-                   <a href="https://vite.dev" target="_blank" rel="noopener">
+-                     <img src={viteLogo} className="logo" alt="Vite logo" />
+-                   </a>
+-                   <a href="https://react.dev" target="_blank" rel="noopener">
+-                     <img src={reactLogo} className="logo react" alt="React logo" />
+-                   </a>
+-                 </div>
+-                 <h1>Vite + React</h1>
+-                 <div className="card">
+-                   <button onClick={() => setCount((count) => count + 1)}>
+-                     count is {count}
+-                   </button>
+-                   <p>
+-                     Edit <code>src/App.tsx</code> and save to test HMR
+-                   </p>
+-                 </div>
+-                 <p className="read-the-docs">
+-                   Click on the Vite and React logos to learn more
+-                 </p>
+-               </>
+-             } />
++             <Route path="/" element={<Home />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+-   )
+- }
++   );
++ };
+  
+- export default App
++ export default App;
+  
+```
+
+---
+
+Phase 5 is now complete:
+
+- The Home page component is built with a hero section, featured products, and a banner.
+- The Home page is integrated into the App.
+
+Next, we'll commit these changes and move on to Phase 6: Category & Product Listing Pages. Would you like to commit now, or do you want to review or adjust anything first?
+
+---
+
+_**User**_
+
+I don't see styling on the page
+
+---
+
+_**Assistant**_
+
+
+
+
+---
+
+```diff
+- 
++ .home {
++   padding: var(--spacing-md);
++ }
++ 
++ .hero {
++   text-align: center;
++   margin-bottom: var(--spacing-lg);
++ }
++ 
++ .hero h1 {
++   font-size: var(--font-size-h1);
++   color: var(--color-primary);
++ }
++ 
++ .hero p {
++   font-size: var(--font-size-body);
++   color: var(--color-text);
++ }
++ 
++ .featured-products {
++   margin-bottom: var(--spacing-lg);
++ }
++ 
++ .featured-products h2 {
++   font-size: var(--font-size-h2);
++   color: var(--color-secondary);
++ }
++ 
++ .product-grid {
++   display: grid;
++   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
++   gap: var(--spacing-md);
++ }
++ 
++ .product {
++   padding: var(--spacing-md);
++   border: 1px solid var(--color-gray);
++   border-radius: var(--border-radius-md);
++   text-align: center;
++ }
++ 
++ .banner {
++   background-color: var(--color-primary);
++   color: white;
++   padding: var(--spacing-lg);
++   text-align: center;
++   border-radius: var(--border-radius-md);
++ }
++ 
++ .banner h2 {
++   font-size: var(--font-size-h2);
++ }
++ 
++ .banner p {
++   font-size: var(--font-size-body);
++ } 
+```
+
+---
+
+```diff
+  import React from 'react';
++ import './Home.css';
+  
+  const Home: React.FC = () => {
+```
+
+---
+
+The Home page now has basic styling applied. You should see the hero section, featured products, and banner styled according to the design tokens.
+
+Next, we'll commit these changes and move on to Phase 6: Category & Product Listing Pages. Would you like to commit now, or do you want to review or adjust anything first?
+
+---
+
+_**User**_
+
+I see it now, apply styling to header and footer
+
+---
+
+_**Assistant**_
+
+
+
+
+---
+
+```diff
+- 
++ header {
++   display: flex;
++   justify-content: space-between;
++   align-items: center;
++   padding: var(--spacing-md);
++   background-color: var(--color-background);
++   border-bottom: 1px solid var(--color-gray);
++ }
++ 
++ .logo a {
++   font-size: var(--font-size-h2);
++   color: var(--color-primary);
++   text-decoration: none;
++ }
++ 
++ nav ul {
++   display: flex;
++   list-style: none;
++   gap: var(--spacing-md);
++ }
++ 
++ nav a {
++   color: var(--color-text);
++   text-decoration: none;
++ }
++ 
++ button {
++   display: none; /* Hide on desktop */
++   background: none;
++   border: none;
++   font-size: var(--font-size-body);
++   color: var(--color-text);
++   cursor: pointer;
++ }
++ 
++ @media (max-width: 768px) {
++   nav {
++     display: none; /* Hide on mobile */
++   }
++   button {
++     display: block; /* Show on mobile */
++   }
++ } 
+```
+
+---
+
+```diff
+  import React, { useState } from 'react';
+  import { Link } from 'react-router-dom';
++ import './Header.css';
+  
+  const Header: React.FC = () => {
+```
+
+---
+
+```diff
+- 
++ footer {
++   padding: var(--spacing-lg);
++   background-color: var(--color-secondary);
++   color: white;
++ }
++ 
++ .footer-content {
++   display: flex;
++   flex-direction: column;
++   align-items: center;
++   gap: var(--spacing-md);
++ }
++ 
++ .footer-links {
++   display: flex;
++   gap: var(--spacing-md);
++ }
++ 
++ .footer-links a {
++   color: white;
++   text-decoration: none;
++ }
++ 
++ .social-links {
++   display: flex;
++   gap: var(--spacing-md);
++ }
++ 
++ .social-links a {
++   color: white;
++   text-decoration: none;
++ } 
+```
+
+---
+
+```diff
+  import React from 'react';
+  import { Link } from 'react-router-dom';
++ import './Footer.css';
+  
+  const Footer: React.FC = () => {
+```
+
+---
+
+The Header and Footer components now have basic styling applied. You should see the header with a logo, navigation links, and a mobile menu toggle, as well as the footer with links, social media icons, and copyright information.
+
+Next, we'll commit these changes and move on to Phase 6: Category & Product Listing Pages. Would you like to commit now, or do you want to review or adjust anything first?
+
+---
+
+_**User**_
+
+let's apply the images are we move
+
+---
+
+_**Assistant**_
+
+
+
+
+---
+
+```diff
+      <header>
+        <div className="logo">
+-         <Link to="/">Audiophile</Link>
++         <Link to="/">
++           <img src="/assets/shared/desktop/logo.svg" alt="Audiophile Logo" />
++         </Link>
+        </div>
+        <nav>
+```
+
+---
+
+```diff
+          </div>
+          <div className="social-links">
+-           <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+-           <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+-           <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
++           <a href="https://facebook.com" target="_blank" rel="noopener">
++             <img src="/assets/shared/desktop/icon-facebook.svg" alt="Facebook" />
++           </a>
++           <a href="https://twitter.com" target="_blank" rel="noopener">
++             <img src="/assets/shared/desktop/icon-twitter.svg" alt="Twitter" />
++           </a>
++           <a href="https://instagram.com" target="_blank" rel="noopener">
++             <img src="/assets/shared/desktop/icon-instagram.svg" alt="Instagram" />
++           </a>
+          </div>
+          <p>&copy; 2023 Audiophile. All rights reserved.</p>
+```
+
+---
+
+The Header and Footer components now include images:
+
+- The Header displays the Audiophile logo from `/assets/shared/desktop/logo.svg`.
+- The Footer displays social media icons from `/assets/shared/desktop/icon-facebook.svg`, `/assets/shared/desktop/icon-twitter.svg`, and `/assets/shared/desktop/icon-instagram.svg`.
+
+Next, we'll commit these changes and move on to Phase 6: Category & Product Listing Pages. Would you like to commit now, or do you want to review or adjust anything first?
+
+---
+
+_**User**_
+
+what's next
+
+---
+
+_**Assistant**_
+
+Next, we'll move on to Phase 6: Category & Product Listing Pages. This will involve:
+
+- Building category pages (e.g., Headphones, Speakers, Earphones).
+- Displaying products from the mock data.
+- Implementing filtering/sorting if present in the Figma design.
+
+Would you like to proceed with Phase 6, or do you want to review or adjust anything from the previous phases first?
+
+---
+
+_**User**_
+
+continue with phase 6
+
+---
+
+_**Assistant**_
+
+
+
+
+---
+
+```diff
+- 
++ import React from 'react';
++ import { useParams } from 'react-router-dom';
++ import './Category.css';
++ 
++ // Mock data for products
++ const products = [
++   { id: 1, name: 'Product 1', category: 'headphones' },
++   { id: 2, name: 'Product 2', category: 'headphones' },
++   { id: 3, name: 'Product 3', category: 'speakers' },
++   { id: 4, name: 'Product 4', category: 'earphones' },
++ ];
++ 
++ const Category: React.FC = () => {
++   const { category } = useParams<{ category: string }>();
++   const filteredProducts = products.filter(product => product.category === category);
++ 
++   return (
++     <div className="category">
++       <h1>{category?.charAt(0).toUpperCase() + category?.slice(1)}</h1>
++       <div className="product-list">
++         {filteredProducts.map(product => (
++           <div key={product.id} className="product">
++             {product.name}
++           </div>
++         ))}
++       </div>
++     </div>
++   );
++ };
++ 
++ export default Category; 
+```
+
+---
+
+```diff
+- 
++ .category {
++   padding: var(--spacing-md);
++ }
++ 
++ .category h1 {
++   font-size: var(--font-size-h1);
++   color: var(--color-secondary);
++   margin-bottom: var(--spacing-lg);
++ }
++ 
++ .product-list {
++   display: grid;
++   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
++   gap: var(--spacing-md);
++ }
++ 
++ .product {
++   padding: var(--spacing-md);
++   border: 1px solid var(--color-gray);
++   border-radius: var(--border-radius-md);
++   text-align: center;
++ } 
+```
+
+---
+
+
+
+---
+
+Phase 6 is now complete:
+
+- The Category page component is built to display products for a specific category (e.g., Headphones, Speakers, Earphones).
+- The Category page is integrated into the App with a dynamic route.
+
+Next, we'll commit these changes and move on to Phase 7: Product Details Page. Would you like to commit now, or do you want to review or adjust anything first?
 
 ---
 

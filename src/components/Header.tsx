@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Header.css';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,7 +8,9 @@ const Header: React.FC = () => {
   return (
     <header>
       <div className="logo">
-        <Link to="/">Audiophile</Link>
+        <Link to="/">
+          <img src="/assets/shared/desktop/logo.svg" alt="Audiophile Logo" />
+        </Link>
       </div>
       <nav>
         <ul>
