@@ -3,8 +3,8 @@
 ## Progress Tracking
 
 - [x] Phase 1: Project Setup & Mock Data Integration
-- [ ] Phase 2: Design System & Global Styles
-- [ ] Phase 3: Routing & Page Structure
+- [x] Phase 2: Design System & Global Styles
+- [x] Phase 3: Routing & Page Structure
 - [ ] Phase 4: Header, Navigation, and Footer
 - [ ] Phase 5: Home Page Implementation
 - [ ] Phase 6: Category & Product Listing Pages
