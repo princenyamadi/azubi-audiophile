@@ -906,3 +906,177 @@ Would you like to proceed with this approach? If yes, I’ll start extracting to
 
 ---
 
+_**User**_
+
+let's go with yout suggestion and move to next steps
+
+---
+
+_**Assistant**_
+
+
+
+
+---
+
+```diff
+- 
++ /* Design Tokens from Figma */
++ 
++ :root {
++   /* Colors */
++   --color-primary: #D87D4A;
++   --color-secondary: #101010;
++   --color-background: #FFFFFF;
++   --color-text: #000000;
++   --color-gray: #F1F1F1;
++ 
++   /* Typography */
++   --font-family-primary: 'Manrope', sans-serif;
++   --font-size-base: 16px;
++   --font-size-h1: 2.5rem;
++   --font-size-h2: 2rem;
++   --font-size-h3: 1.5rem;
++   --font-size-body: 1rem;
++ 
++   /* Spacing */
++   --spacing-xs: 0.25rem;
++   --spacing-sm: 0.5rem;
++   --spacing-md: 1rem;
++   --spacing-lg: 2rem;
++   --spacing-xl: 3rem;
++ 
++   /* Border Radius */
++   --border-radius-sm: 4px;
++   --border-radius-md: 8px;
++   --border-radius-lg: 16px;
++ } 
+```
+
+---
+
+```diff
+- 
++ /* Global Styles */
++ 
++ /* Reset */
++ * {
++   margin: 0;
++   padding: 0;
++   box-sizing: border-box;
++ }
++ 
++ body {
++   font-family: var(--font-family-primary);
++   font-size: var(--font-size-base);
++   color: var(--color-text);
++   background-color: var(--color-background);
++   line-height: 1.5;
++ }
++ 
++ h1 {
++   font-size: var(--font-size-h1);
++ }
++ 
++ h2 {
++   font-size: var(--font-size-h2);
++ }
++ 
++ h3 {
++   font-size: var(--font-size-h3);
++ }
++ 
++ p {
++   font-size: var(--font-size-body);
++ } 
+```
+
+---
+
+```diff
+- import { StrictMode } from 'react'
+- import { createRoot } from 'react-dom/client'
+- import './index.css'
+- import App from './App.tsx'
++ import React from 'react'
++ import ReactDOM from 'react-dom/client'
++ import './styles/theme.css'
++ import './styles/global.css'
++ import App from './App'
+  
+- createRoot(document.getElementById('root')!).render(
+-   <StrictMode>
++ ReactDOM.createRoot(document.getElementById('root')!).render(
++   <React.StrictMode>
+      <App />
+-   </StrictMode>,
++   </React.StrictMode>,
+  )
+  
+```
+
+---
+
+The next steps for Phase 2 are complete:
+
+1. **Design Tokens:**  
+   - Created `src/styles/theme.css` with CSS variables for colors, typography, spacing, and border radius.
+
+2. **Global Styles:**  
+   - Created `src/styles/global.css` with a basic reset and base styles using the design tokens.
+
+3. **Integration:**  
+   - Imported both files into `src/main.tsx` so they apply globally.
+
+---
+
+**Next Steps:**
+- Review the design tokens in `theme.css` and update them to match your Figma design.
+- Test the global styles to ensure they look as expected.
+
+Would you like to commit these changes now, or would you prefer to review and adjust the tokens first?
+
+---
+
+_**User**_
+
+continue
+
+---
+
+_**Assistant**_
+
+
+
+
+---
+
+```bash
+git add . && git commit -m "feat: add global styles and design tokens from Figma"
+```
+
+```
+╭─pointbreak@Pointbreaks-Macbook-Pro ~/Documents/source/personal/audiofile  ‹main› 
+╰─➤  git add . && git commit -m "feat: add global styles and design tokens from Figma"
+[main e1e1e07] feat: add global styles and design tokens from Figma
+ 5 files changed, 424 insertions(+), 8 deletions(-)
+ create mode 100644 src/styles/global.css
+ create mode 100644 src/styles/theme.css
+╭─pointbreak@Pointbreaks-Macbook-Pro ~/Documents/source/personal/audiofile  ‹main› 
+╰─➤
+```
+
+---
+
+Phase 2 is now complete and committed with the message:
+> feat: add global styles and design tokens from Figma
+
+Next, we'll move on to Phase 3: Routing & Page Structure. This will involve:
+- Setting up React Router for navigation.
+- Scaffolding the main pages (Home, Category, Product Details, Cart, Checkout, etc.).
+- Adding a basic layout (header, footer, main content area).
+
+Would you like to proceed with Phase 3, or do you want to review or adjust anything from Phase 2 first?
+
+---
+
