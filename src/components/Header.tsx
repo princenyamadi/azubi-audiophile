@@ -31,7 +31,7 @@ export const Header: React.FC = () => (
     {/* Cart Icon */}
     <a href="/cart" className="ml-16 flex items-center">
       <img
-        src="/assets/shared/desktop/icon-cart.svg"
+        src="/azubi-audiophile/assets/shared/desktop/icon-cart.svg"
         alt="Cart"
         className="w-6 h-6 hover:scale-110 transition-transform duration-150"
       />

@@ -153,7 +153,7 @@ const Home = () => {
             </div>
             <div className="lg:w-1/2">
               <img
-                src="/assets/shared/desktop/image-best-gear.jpg"
+                src="/azubi-audiophile/assets/shared/desktop/image-best-gear.jpg"
                 alt="Best Audio Gear"
                 className="w-full h-auto rounded-lg"
               />
