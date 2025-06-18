@@ -38,7 +38,7 @@ export default {
         body: ["15px", { lineHeight: "25px" }],
       },
       spacing: {
-        // These spacing values will be updated based on the Figma design
+        // Custom spacing values for better design consistency
         4.5: "1.125rem",
         5.5: "1.375rem",
         6.5: "1.625rem",
@@ -92,6 +92,9 @@ export default {
       },
       borderRadius: {
         "4xl": "2rem",
+      },
+      screens: {
+        xs: "375px",
       },
     },
   },

@@ -3,8 +3,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-md);
-  background-color: var(--color-background);
-  border-bottom: 1px solid var(--color-gray);
+  background-color: var(--color-secondary);
+  /* border-bottom: 1px solid var(--color-gray); */
 }
 
 .logo a {
@@ -16,11 +16,12 @@ header {
 nav ul {
   display: flex;
   list-style: none;
+ 
   gap: var(--spacing-md);
 }
 
 nav a {
-  color: var(--color-text);
+  color: var(--color-gra);
   text-decoration: none;
 }
 

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "zx9-speaker",
+    "name": "ZX9 Speaker",
+    "description": "Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.",
+    "image": "/assets/home/desktop/image-speaker-zx9.png",
+    "bgColor": "bg-primary",
+    "buttonStyle": "btn-dark",
+    "link": "/product/zx9-speaker"
+  },
+  {
+    "id": "zx7-speaker",
+    "name": "ZX7 Speaker",
+    "description": "",
+    "image": "/assets/home/desktop/image-speaker-zx7.jpg",
+    "bgColor": "bg-gray-100",
+    "buttonStyle": "btn-outline",
+    "link": "/product/zx7-speaker"
+  },
+  {
+    "id": "yx1-earphones",
+    "name": "YX1 Earphones",
+    "description": "",
+    "image": "/assets/home/desktop/image-earphones-yx1.jpg",
+    "bgColor": "bg-gray-100",
+    "buttonStyle": "btn-outline",
+    "link": "/product/yx1-earphones"
+  }
+]

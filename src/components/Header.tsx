@@ -1,30 +1,42 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css';
+import React from 'react';
 
-const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const navLinks = [
+  { name: 'HOME', href: '/' },
+  { name: 'HEADPHONES', href: '/headphones' },
+  { name: 'SPEAKERS', href: '/speakers' },
+  { name: 'EARPHONES', href: '/earphones' },
+];
 
-  return (
-    <header>
-      <div className="logo">
-        <Link to="/">
-          <img src="/assets/shared/desktop/logo.svg" alt="Audiophile Logo" />
-        </Link>
-      </div>
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/headphones">Headphones</Link></li>
-          <li><Link to="/speakers">Speakers</Link></li>
-          <li><Link to="/earphones">Earphones</Link></li>
-        </ul>
-      </nav>
-      <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-        {isMenuOpen ? 'Close' : 'Menu'}
-      </button>
-    </header>
-  );
-};
+export const Header: React.FC = () => (
+  <header className="w-full bg-black text-white px-10 py-8 flex items-center justify-between">
+    {/* Logo */}
+    <a href="/" className="font-extrabold text-2xl tracking-widest mr-16">
+      audiophile
+    </a>
+    {/* Nav */}
+    <nav className="flex-1 flex justify-center">
+      <ul className="flex gap-8">
+        {navLinks.map((link) => (
+          <li key={link.name}>
+            <a
+              href={link.href}
+              className="uppercase text-sm tracking-widest font-bold hover:border-b-2 hover:border-orange-500 transition-colors duration-150 px-2 py-1"
+            >
+              {link.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    {/* Cart Icon */}
+    <a href="/cart" className="ml-16 flex items-center">
+      <img
+        src="/assets/shared/desktop/icon-cart.svg"
+        alt="Cart"
+        className="w-6 h-6 hover:scale-110 transition-transform duration-150"
+      />
+    </a>
+  </header>
+);
 
 export default Header; 

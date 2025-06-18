@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import './Category.css';
 
@@ -10,13 +9,15 @@ const products = [
   { id: 4, name: 'Product 4', category: 'earphones' },
 ];
 
-const Category: React.FC = () => {
+const Category = () => {
   const { category } = useParams<{ category: string }>();
   const filteredProducts = products.filter(product => product.category === category);
 
+  const categoryTitle = category ? category.charAt(0).toUpperCase() + category.slice(1) : '';
+
   return (
     <div className="category">
-      <h1>{category?.charAt(0).toUpperCase() + category?.slice(1)}</h1>
+      <h1>{categoryTitle}</h1>
       <div className="product-list">
         {filteredProducts.map(product => (
           <div key={product.id} className="product">

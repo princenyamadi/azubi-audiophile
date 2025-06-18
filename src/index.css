@@ -1,68 +1,89 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --color-primary: #D87D4A;
+    --color-primary-light: #FBAF85;
+    --color-black: #101010;
+    --color-gray: #F1F1F1;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+
+  body {
+    @apply text-black antialiased;
   }
 }
+
+@layer components {
+  .container {
+    @apply max-w-[1110px] mx-auto px-6;
+  }
+
+  .heading-1 {
+    @apply text-5xl font-bold tracking-[0.1em];
+  }
+
+  .heading-2 {
+    @apply text-4xl font-bold tracking-[0.1em];
+  }
+
+  .heading-3 {
+    @apply text-3xl font-bold tracking-[0.1em];
+  }
+
+  .heading-4 {
+    @apply text-2xl font-bold tracking-[0.1em];
+  }
+
+  .heading-5 {
+    @apply text-xl font-bold tracking-[0.1em];
+  }
+
+  .heading-6 {
+    @apply text-lg font-bold tracking-[0.1em];
+  }
+
+  .subtitle {
+    @apply text-sm font-bold tracking-[0.1em] uppercase;
+  }
+
+  .body {
+    @apply text-base font-medium;
+  }
+
+  .overline {
+    @apply text-sm font-normal tracking-[0.5em] uppercase;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-8 py-4 text-sm font-bold tracking-[0.1em] uppercase transition-colors;
+  }
+
+  /* Form Styles */
+  .form-label {
+    @apply block text-sm font-bold mb-2;
+  }
+
+  .form-input {
+    @apply w-full px-6 py-4 border rounded-lg focus:outline-none focus:ring-1 transition-colors;
+    @apply border-black/10 focus:border-primary focus:ring-primary;
+    @apply hover:border-primary;
+  }
+
+  .form-input.error {
+    @apply border-red-500 focus:border-red-500 focus:ring-red-500;
+  }
+
+  .form-error {
+    @apply text-red-500 text-sm mt-1;
+  }
+
+  /* Radio Button Styles */
+  input[type="radio"] {
+    @apply w-5 h-5 border-2 border-black/10 rounded-full;
+    @apply checked:bg-primary checked:border-primary;
+    @apply focus:ring-2 focus:ring-primary/20;
+    @apply transition-colors;
+  }
+} 

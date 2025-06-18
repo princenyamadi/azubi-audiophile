@@ -14,7 +14,7 @@
 
 @layer components {
   .container {
-    @apply mx-auto px-6 md:px-10 lg:px-40;
+    @apply mx-auto px-6 md:px-10 lg:px-40 max-w-8xl;
   }
 
   .btn {

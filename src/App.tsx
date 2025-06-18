@@ -1,22 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import './App.css'
+import { BrowserRouter as Router } from 'react-router-dom';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import Routes from './Routes';
+import { OrderProvider } from './contexts/OrderContext';
+import { CartProvider } from './contexts/CartContext';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Router>
-      <div>
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <CartProvider>
+        <OrderProvider>
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <Routes />
+            <Footer />
+          </div>
+        </OrderProvider>
+      </CartProvider>
     </Router>
   );
 };
