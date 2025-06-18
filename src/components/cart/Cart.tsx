@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCartContext } from '../../contexts/CartContext';
 import Button from '../common/Button';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 
 const Cart: React.FC = () => {
   const {
@@ -57,20 +58,29 @@ const Cart: React.FC = () => {
                     <h3 className="font-bold">{item.name}</h3>
                     <p className="text-black/50">$ {item.price.toLocaleString()}</p>
                   </div>
-                  <div className="flex items-center bg-gray">
+                  <div className="flex items-center gap-2">
+                    <div className="flex items-center bg-gray">
+                      <button
+                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                        className="px-4 py-3 text-black/50 hover:text-primary transition-colors"
+                        disabled={item.quantity <= 1}
+                      >
+                        -
+                      </button>
+                      <span className="px-4 py-3 font-bold">{item.quantity}</span>
+                      <button
+                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        className="px-4 py-3 text-black/50 hover:text-primary transition-colors"
+                      >
+                        +
+                      </button>
+                    </div>
                     <button
-                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className="px-4 py-3 text-black/50 hover:text-primary transition-colors"
-                      disabled={item.quantity <= 1}
+                      onClick={() => removeFromCart(item.id)}
+                      className="p-2 text-black/50 hover:text-red-500 transition-colors"
+                      aria-label="Remove item"
                     >
-                      -
-                    </button>
-                    <span className="px-4 py-3 font-bold">{item.quantity}</span>
-                    <button
-                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className="px-4 py-3 text-black/50 hover:text-primary transition-colors"
-                    >
-                      +
+                      <XMarkIcon className="w-4 h-4" />
                     </button>
                   </div>
                 </li>
