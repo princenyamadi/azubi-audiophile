@@ -3,6 +3,9 @@ import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: (process.env.NODE_ENV as string) === "production" ? "/audiofile/" : "/",
+  base:
+    (process.env.NODE_ENV as string) === "production"
+      ? "/azubi-audiophile/"
+      : "/",
   plugins: [react()],
 });
